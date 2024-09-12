@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Vista de formulario para Evaluaciones -->
+    <record id="view_school_evaluation_form" model="ir.ui.view">
+        <field name="name">school.evaluation.form</field>
+        <field name="model">school.evaluation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="subject_id"/>
+                        <field name="teacher_id"/>
+                        <field name="student_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Results">
+                        <field name="result_ids">
+                            <tree editable="bottom">
+                                <field name="student_id"/>
+                                <field name="grade"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para Evaluaciones -->
+    <record id="view_school_evaluation_tree" model="ir.ui.view">
+        <field name="name">school.evaluation.tree</field>
+        <field name="model">school.evaluation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="subject_id"/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de Evaluaciones -->
+    <record id="action_school_evaluation" model="ir.actions.act_window">
+        <field name="name">Evaluations</field>
+        <field name="res_model">school.evaluation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para Evaluaciones -->
+    <menuitem id="menu_school_evaluation" name="Evaluations" parent="menu_school_management" action="action_school_evaluation"/>
+</odoo>

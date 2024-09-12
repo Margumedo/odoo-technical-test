@@ -1,0 +1,54 @@
+<odoo>
+    <!-- Vista de formulario para school.subject -->
+    <record id="view_school_subject_form" model="ir.ui.view">
+        <field name="name">school.subject.form</field>
+        <field name="model">school.subject</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="Enter subject name"/>
+                        <field name="credits"/>
+                        <field name="max_students"/>
+                        <field name="active"/>
+                        <field name="student_ids"/>
+                        <field name="teacher_id"/>
+                    </group>
+                    <group string="Student Grades">
+                        <field name="student_grades">
+                            <tree>
+                                <field name="student_id"/>
+                                <field name="final_exam_grade" readonly="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para school.subject -->
+    <record id="view_school_subject_tree" model="ir.ui.view">
+        <field name="name">school.subject.tree</field>
+        <field name="model">school.subject</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="credits"/>
+                <field name="max_students"/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de asignaturas -->
+    <record id="action_school_subject" model="ir.actions.act_window">
+        <field name="name">Subjects</field>
+        <field name="res_model">school.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para asignaturas -->
+    <menuitem id="menu_school_management" name="School Management" sequence="1"/>
+    <menuitem id="menu_school_subject" name="Subjects" parent="menu_school_management" action="school_management.action_school_subject"/>
+</odoo>

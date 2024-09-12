@@ -1,0 +1,44 @@
+<odoo>
+    <!-- Vista de formulario para school.student -->
+    <record id="view_school_student_form" model="ir.ui.view">
+        <field name="name">school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="Enter the student's name" required="1"/>
+                        <field name="birth_date" placeholder="Select the student's birth date"/>
+                        <field name="age" readonly="1" placeholder="The age will be calculated automatically"/>
+                        <field name="average_grade" readonly="1" placeholder="The average grade will be calculated automatically"/>
+                        <field name="subject_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para school.student -->
+    <record id="view_school_student_tree" model="ir.ui.view">
+        <field name="name">school.student.tree</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="average_grade"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de estudiantes -->
+    <record id="action_school_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para estudiantes -->
+    <menuitem id="menu_school_student" name="Students" parent="menu_school_management" action="action_school_student"/>
+</odoo>
