@@ -1,1 +1,11 @@
-/__pycache__
+# Ignorar archivos y carpetas generados por Python
+__pycache__/
+*.py[cod]
+
+# Ignorar archivos de log de Odoo
+*.log
+
+# Ignorar otras carpetas temporales o archivos innecesarios
+*.swp
+.DS_Store
+Thumbs.db
