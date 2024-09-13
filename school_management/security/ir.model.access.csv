@@ -5,3 +5,4 @@ access_school_teacher,access.school.teacher,model_school_teacher,,1,1,1,1
 access_school_evaluation,access.school.evaluation,model_school_evaluation,,1,1,1,1
 access_school_evaluation_result,access.school.evaluation.result,model_school_evaluation_result,,1,1,1,1
 access_school_subject_student_grade,access.school.subject.student.grade,model_school_subject_student_grade,,1,1,1,1
+access_school_class,access.school.class,model_school_class,,1,1,1,1

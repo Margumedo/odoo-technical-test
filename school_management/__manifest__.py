@@ -12,6 +12,7 @@
         'views/school_student_views.xml',
         'views/school_teacher_views.xml',
         'views/school_evaluation_views.xml',
+        'views/school_class_views.xml',
     ],
     'images': ['static/description/icon.png'],
     'installable': True,

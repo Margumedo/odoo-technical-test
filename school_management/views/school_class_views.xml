@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Vista de formulario para school.class -->
+    <record id="view_school_class_form" model="ir.ui.view">
+        <field name="name">school.class.form</field>
+        <field name="model">school.class</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="Enter class name" required="1"/>
+                        <field name="start_datetime" required="1"/>
+                        <field name="end_datetime" required="1"/>
+                        <field name="subject_id" required="1"/>
+                        <field name="teacher_id" required="1"/>
+                        <field name="student_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para school.class -->
+    <record id="view_school_class_tree" model="ir.ui.view">
+        <field name="name">school.class.tree</field>
+        <field name="model">school.class</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+                <field name="subject_id"/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de clases -->
+    <record id="action_school_class" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="res_model">school.class</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para clases -->
+    <menuitem id="menu_school_class" name="Classes" parent="menu_school_management" action="action_school_class"/>
+</odoo>
